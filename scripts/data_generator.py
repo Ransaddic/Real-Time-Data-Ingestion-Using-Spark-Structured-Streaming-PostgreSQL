@@ -8,7 +8,7 @@ import time
 
 
 # Configuration
-OUTPUT_DIR = 'data/steam_data' # Directory to save the generated csv files
+OUTPUT_DIR = '../data/steam_data' # Directory to save the generated csv files
 EVENT_TYPES =['view', 'click', 'add_to_cart','purchase'] # Types of events to generate
 PRODUCTS=[
     {"id": "P1001", "name": "Smartphone"},
@@ -22,7 +22,7 @@ USERS= [f'user_{i}' for i in range(1, 101)] # generate fake 100 users
 # Create the output directory if it doesn't exist
 os.makedirs(OUTPUT_DIR, exist_ok=True) # Create the output directory if it doesn't exist
 
-
+# Function to generate a random event
 def generate_event():
     product = random.choice(PRODUCTS) # Randomly select a product
     return {
@@ -34,9 +34,9 @@ def generate_event():
         "event_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
 
+# Function to write events to a CSV file
 def write_event_to_csv(filename, num_event):
-
-    #Write the event to a CSV file
+    # Write the event to a CSV file
     file_path = os.path.join(OUTPUT_DIR, filename)
     with open(file_path,mode='w', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=[
