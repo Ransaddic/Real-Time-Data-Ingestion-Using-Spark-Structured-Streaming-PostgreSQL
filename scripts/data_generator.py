@@ -8,7 +8,7 @@ import time
 
 
 # Configuration
-OUTPUT_DIR = '../data/steam_data' # Directory to save the generated csv files
+OUTPUT_DIR = 'data/stream_data' # Directory to save the generated csv files
 EVENT_TYPES =['view', 'click', 'add_to_cart','purchase'] # Types of events to generate
 PRODUCTS=[
     {"id": "P1001", "name": "Smartphone"},
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     file_count = 0
     while True:
           file_count += 1
-          file_name = f"steam_data_{file_count}.csv"
+          file_name = f"stream_data_{file_count}.csv"
           print(f'Generating {file_name}...')
           write_event_to_csv(file_name, num_event=50) # Generate 50 events
           time.sleep(5) # Wait for 5 seconds before generating the next file

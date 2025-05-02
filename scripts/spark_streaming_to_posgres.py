@@ -23,7 +23,7 @@ schema = StructType() \
     .add("event_time", TimestampType())
 
 # Read streaming data
-input_path = "../data/steam_data/" # Path to the CSV files
+input_path = "data/stream_data/" # Path to the CSV files
 streaming_df = spark.readStream \
     .schema(schema) \
     .option("header", "true") \
@@ -33,7 +33,7 @@ streaming_df = spark.readStream \
 postgres_url = "jdbc:postgresql://localhost:5432/ecommerce_db"  # Replace with your PostgreSQL URL
 postgres_property = {
     "user": "postgres",  # PostgreSQL username
-    "password": "password",  # PostgreSQL password
+    "password": "",  # PostgreSQL password
     "driver": "org.postgresql.Driver"
 }
 
